@@ -1,0 +1,1303 @@
+polling-app@0.0.0 /home/shisia/poll-verse
+├── @eslint/js@9.38.0
+├─┬ @hookform/resolvers@3.10.0
+│ └── react-hook-form@7.65.0 deduped
+├─┬ @radix-ui/react-accordion@1.2.12
+│ ├── @radix-ui/primitive@1.1.3
+│ ├── @radix-ui/react-collapsible@1.1.12 deduped
+│ ├─┬ @radix-ui/react-collection@1.1.7
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-context@1.1.2 deduped
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-slot@1.2.3 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-compose-refs@1.1.2
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-context@1.1.2
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-direction@1.1.1
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-id@1.1.1
+│ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-primitive@2.1.3
+│ │ ├── @radix-ui/react-slot@1.2.3 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-use-controllable-state@1.2.2
+│ │ ├─┬ @radix-ui/react-use-effect-event@0.0.2
+│ │ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-alert-dialog@1.1.15
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-dialog@1.1.15 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-slot@1.2.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-aspect-ratio@1.1.7
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-avatar@1.1.10
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├─┬ @radix-ui/react-use-callback-ref@1.1.1
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-use-is-hydrated@0.1.0
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react@18.3.1 deduped
+│ │ └─┬ use-sync-external-store@1.6.0
+│ │   └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-use-layout-effect@1.1.1
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-checkbox@1.3.3
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├─┬ @radix-ui/react-presence@1.1.5
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├─┬ @radix-ui/react-use-previous@1.1.1
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-use-size@1.1.1
+│ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-collapsible@1.1.12
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-context-menu@2.2.16
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├─┬ @radix-ui/react-menu@2.1.16
+│ │ ├── @radix-ui/primitive@1.1.3 deduped
+│ │ ├── @radix-ui/react-collection@1.1.7 deduped
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-context@1.1.2 deduped
+│ │ ├── @radix-ui/react-direction@1.1.1 deduped
+│ │ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ │ ├── @radix-ui/react-focus-guards@1.1.3 deduped
+│ │ ├── @radix-ui/react-focus-scope@1.1.7 deduped
+│ │ ├── @radix-ui/react-id@1.1.1 deduped
+│ │ ├── @radix-ui/react-popper@1.2.8 deduped
+│ │ ├── @radix-ui/react-portal@1.1.9 deduped
+│ │ ├── @radix-ui/react-presence@1.1.5 deduped
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-roving-focus@1.1.11 deduped
+│ │ ├── @radix-ui/react-slot@1.2.3 deduped
+│ │ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── aria-hidden@1.2.6 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ ├── react-remove-scroll@2.7.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-dialog@1.1.15
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├─┬ @radix-ui/react-dismissable-layer@1.1.11
+│ │ ├── @radix-ui/primitive@1.1.3 deduped
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ │ ├─┬ @radix-ui/react-use-escape-keydown@1.1.1
+│ │ │ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-focus-guards@1.1.3
+│ │ ├── @types/react@18.3.26 deduped
+│ │ └── react@18.3.1 deduped
+│ ├─┬ @radix-ui/react-focus-scope@1.1.7
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├─┬ @radix-ui/react-portal@1.1.9
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-slot@1.2.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├─┬ aria-hidden@1.2.6
+│ │ └── tslib@2.8.1
+│ ├── react-dom@18.3.1 deduped
+│ ├─┬ react-remove-scroll@2.7.1
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├─┬ react-remove-scroll-bar@2.3.8
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ ├── react-style-singleton@2.2.3 deduped
+│ │ │ ├── react@18.3.1 deduped
+│ │ │ └── tslib@2.8.1 deduped
+│ │ ├─┬ react-style-singleton@2.2.3
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ ├── get-nonce@1.0.1
+│ │ │ ├── react@18.3.1 deduped
+│ │ │ └── tslib@2.8.1 deduped
+│ │ ├── react@18.3.1 deduped
+│ │ ├── tslib@2.8.1 deduped
+│ │ ├─┬ use-callback-ref@1.3.3
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ ├── react@18.3.1 deduped
+│ │ │ └── tslib@2.8.1 deduped
+│ │ └─┬ use-sidecar@1.1.3
+│ │   ├── @types/react@18.3.26 deduped
+│ │   ├── detect-node-es@1.1.0
+│ │   ├── react@18.3.1 deduped
+│ │   └── tslib@2.8.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-dropdown-menu@2.1.16
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-menu@2.1.16 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-hover-card@1.1.15
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ ├─┬ @radix-ui/react-popper@1.2.8
+│ │ ├─┬ @floating-ui/react-dom@2.1.6
+│ │ │ ├─┬ @floating-ui/dom@1.7.4
+│ │ │ │ ├─┬ @floating-ui/core@1.7.3
+│ │ │ │ │ └── @floating-ui/utils@0.2.10 deduped
+│ │ │ │ └── @floating-ui/utils@0.2.10
+│ │ │ ├── react-dom@18.3.1 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ ├─┬ @radix-ui/react-arrow@1.1.7
+│ │ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ │ ├── @types/react-dom@18.3.7 deduped
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ ├── react-dom@18.3.1 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-context@1.1.2 deduped
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ │ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ │ ├─┬ @radix-ui/react-use-rect@1.1.1
+│ │ │ ├── @radix-ui/rect@1.1.1 deduped
+│ │ │ ├── @types/react@18.3.26 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ ├── @radix-ui/react-use-size@1.1.1 deduped
+│ │ ├── @radix-ui/rect@1.1.1
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @radix-ui/react-portal@1.1.9 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-label@2.1.7
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-menubar@1.1.16
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-collection@1.1.7 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-menu@2.1.16 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├─┬ @radix-ui/react-roving-focus@1.1.11
+│ │ ├── @radix-ui/primitive@1.1.3 deduped
+│ │ ├── @radix-ui/react-collection@1.1.7 deduped
+│ │ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ │ ├── @radix-ui/react-context@1.1.2 deduped
+│ │ ├── @radix-ui/react-direction@1.1.1 deduped
+│ │ ├── @radix-ui/react-id@1.1.1 deduped
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ │ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-navigation-menu@1.2.14
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-collection@1.1.7 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ ├── @radix-ui/react-use-previous@1.1.1 deduped
+│ ├─┬ @radix-ui/react-visually-hidden@1.2.3
+│ │ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ │ ├── @types/react-dom@18.3.7 deduped
+│ │ ├── @types/react@18.3.26 deduped
+│ │ ├── react-dom@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-popover@1.1.15
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ ├── @radix-ui/react-focus-guards@1.1.3 deduped
+│ ├── @radix-ui/react-focus-scope@1.1.7 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-popper@1.2.8 deduped
+│ ├── @radix-ui/react-portal@1.1.9 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-slot@1.2.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── aria-hidden@1.2.6 deduped
+│ ├── react-dom@18.3.1 deduped
+│ ├── react-remove-scroll@2.7.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-progress@1.1.7
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-radio-group@1.3.8
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-roving-focus@1.1.11 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-previous@1.1.1 deduped
+│ ├── @radix-ui/react-use-size@1.1.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-scroll-area@1.2.10
+│ ├── @radix-ui/number@1.1.1
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-select@2.2.6
+│ ├── @radix-ui/number@1.1.1 deduped
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-collection@1.1.7 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ ├── @radix-ui/react-focus-guards@1.1.3 deduped
+│ ├── @radix-ui/react-focus-scope@1.1.7 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-popper@1.2.8 deduped
+│ ├── @radix-ui/react-portal@1.1.9 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-slot@1.2.3 deduped
+│ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ ├── @radix-ui/react-use-previous@1.1.1 deduped
+│ ├── @radix-ui/react-visually-hidden@1.2.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── aria-hidden@1.2.6 deduped
+│ ├── react-dom@18.3.1 deduped
+│ ├── react-remove-scroll@2.7.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-separator@1.1.7
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-slider@1.3.6
+│ ├── @radix-ui/number@1.1.1 deduped
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-collection@1.1.7 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ ├── @radix-ui/react-use-previous@1.1.1 deduped
+│ ├── @radix-ui/react-use-size@1.1.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-slot@1.2.3
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @types/react@18.3.26 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-switch@1.2.6
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-previous@1.1.1 deduped
+│ ├── @radix-ui/react-use-size@1.1.1 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-tabs@1.1.13
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-roving-focus@1.1.11 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-toast@1.2.15
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-collection@1.1.7 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ ├── @radix-ui/react-portal@1.1.9 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-callback-ref@1.1.1 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-use-layout-effect@1.1.1 deduped
+│ ├── @radix-ui/react-visually-hidden@1.2.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-toggle-group@1.1.11
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-direction@1.1.1 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-roving-focus@1.1.11 deduped
+│ ├── @radix-ui/react-toggle@1.1.10 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-toggle@1.1.10
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @radix-ui/react-tooltip@1.2.8
+│ ├── @radix-ui/primitive@1.1.3 deduped
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-context@1.1.2 deduped
+│ ├── @radix-ui/react-dismissable-layer@1.1.11 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-popper@1.2.8 deduped
+│ ├── @radix-ui/react-portal@1.1.9 deduped
+│ ├── @radix-ui/react-presence@1.1.5 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── @radix-ui/react-slot@1.2.3 deduped
+│ ├── @radix-ui/react-use-controllable-state@1.2.2 deduped
+│ ├── @radix-ui/react-visually-hidden@1.2.3 deduped
+│ ├── @types/react-dom@18.3.7 deduped
+│ ├── @types/react@18.3.26 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ @tanstack/react-query@5.90.5
+│ ├── @tanstack/query-core@5.90.5
+│ └── react@18.3.1 deduped
+├─┬ @types/node@22.18.12
+│ └── undici-types@6.21.0
+├─┬ @types/react-dom@18.3.7
+│ └── @types/react@18.3.26 deduped
+├─┬ @types/react@18.3.26
+│ ├── @types/prop-types@15.7.15
+│ └── csstype@3.1.3
+├─┬ @vitejs/plugin-react-swc@3.11.0
+│ ├── @rolldown/pluginutils@1.0.0-beta.27
+│ ├─┬ @swc/core@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-darwin-arm64@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-darwin-x64@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-linux-arm-gnueabihf@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-linux-arm64-gnu@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-linux-arm64-musl@1.13.5
+│ │ ├── @swc/core-linux-x64-gnu@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-linux-x64-musl@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-win32-arm64-msvc@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-win32-ia32-msvc@1.13.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/core-win32-x64-msvc@1.13.5
+│ │ ├── @swc/counter@0.1.3
+│ │ ├── UNMET OPTIONAL DEPENDENCY @swc/helpers@>=0.5.17
+│ │ └─┬ @swc/types@0.1.25
+│ │   └── @swc/counter@0.1.3 deduped
+│ └── vite@5.4.21 deduped
+├─┬ autoprefixer@10.4.21
+│ ├─┬ browserslist@4.26.3
+│ │ ├── baseline-browser-mapping@2.8.18
+│ │ ├── caniuse-lite@1.0.30001751 deduped
+│ │ ├── electron-to-chromium@1.5.237
+│ │ ├── node-releases@2.0.25
+│ │ └─┬ update-browserslist-db@1.1.3
+│ │   ├── browserslist@4.26.3 deduped
+│ │   ├── escalade@3.2.0
+│ │   └── picocolors@1.1.1 deduped
+│ ├── caniuse-lite@1.0.30001751
+│ ├── fraction.js@4.3.7
+│ ├── normalize-range@0.1.2
+│ ├── picocolors@1.1.1
+│ ├── postcss-value-parser@4.2.0
+│ └── postcss@8.5.6 deduped
+├─┬ class-variance-authority@0.7.1
+│ └── clsx@2.1.1 deduped
+├── clsx@2.1.1
+├─┬ cmdk@1.1.1
+│ ├── @radix-ui/react-compose-refs@1.1.2 deduped
+│ ├── @radix-ui/react-dialog@1.1.15 deduped
+│ ├── @radix-ui/react-id@1.1.1 deduped
+│ ├── @radix-ui/react-primitive@2.1.3 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├── date-fns@3.6.0
+├─┬ embla-carousel-react@8.6.0
+│ ├─┬ embla-carousel-reactive-utils@8.6.0
+│ │ └── embla-carousel@8.6.0 deduped
+│ ├── embla-carousel@8.6.0
+│ └── react@18.3.1 deduped
+├─┬ eslint-plugin-react-hooks@5.2.0
+│ └── eslint@9.38.0 deduped
+├─┬ eslint-plugin-react-refresh@0.4.24
+│ └── eslint@9.38.0 deduped
+├─┬ eslint@9.38.0
+│ ├─┬ @eslint-community/eslint-utils@4.9.0
+│ │ ├── eslint-visitor-keys@3.4.3
+│ │ └── eslint@9.38.0 deduped
+│ ├── @eslint-community/regexpp@4.12.1
+│ ├─┬ @eslint/config-array@0.21.1
+│ │ ├── @eslint/object-schema@2.1.7
+│ │ ├── debug@4.4.3 deduped
+│ │ └── minimatch@3.1.2 deduped
+│ ├─┬ @eslint/config-helpers@0.4.1
+│ │ └── @eslint/core@0.16.0 deduped
+│ ├─┬ @eslint/core@0.16.0
+│ │ └── @types/json-schema@7.0.15
+│ ├─┬ @eslint/eslintrc@3.3.1
+│ │ ├── ajv@6.12.6 deduped
+│ │ ├── debug@4.4.3 deduped
+│ │ ├── espree@10.4.0 deduped
+│ │ ├── globals@14.0.0
+│ │ ├── ignore@5.3.2 deduped
+│ │ ├─┬ import-fresh@3.3.1
+│ │ │ ├─┬ parent-module@1.0.1
+│ │ │ │ └── callsites@3.1.0
+│ │ │ └── resolve-from@4.0.0
+│ │ ├─┬ js-yaml@4.1.0
+│ │ │ └── argparse@2.0.1
+│ │ ├── minimatch@3.1.2 deduped
+│ │ └── strip-json-comments@3.1.1
+│ ├── @eslint/js@9.38.0 deduped
+│ ├─┬ @eslint/plugin-kit@0.4.0
+│ │ ├── @eslint/core@0.16.0 deduped
+│ │ └─┬ levn@0.4.1
+│ │   ├── prelude-ls@1.2.1 deduped
+│ │   └── type-check@0.4.0 deduped
+│ ├─┬ @humanfs/node@0.16.7
+│ │ ├── @humanfs/core@0.19.1
+│ │ └── @humanwhocodes/retry@0.4.3 deduped
+│ ├── @humanwhocodes/module-importer@1.0.1
+│ ├── @humanwhocodes/retry@0.4.3
+│ ├── @types/estree@1.0.8
+│ ├─┬ ajv@6.12.6
+│ │ ├── fast-deep-equal@3.1.3 deduped
+│ │ ├── fast-json-stable-stringify@2.1.0
+│ │ ├── json-schema-traverse@0.4.1
+│ │ └─┬ uri-js@4.4.1
+│ │   └── punycode@2.3.1
+│ ├─┬ chalk@4.1.2
+│ │ ├─┬ ansi-styles@4.3.0
+│ │ │ └─┬ color-convert@2.0.1
+│ │ │   └── color-name@1.1.4
+│ │ └─┬ supports-color@7.2.0
+│ │   └── has-flag@4.0.0
+│ ├─┬ cross-spawn@7.0.6
+│ │ ├── path-key@3.1.1
+│ │ ├─┬ shebang-command@2.0.0
+│ │ │ └── shebang-regex@3.0.0
+│ │ └─┬ which@2.0.2
+│ │   └── isexe@2.0.0
+│ ├─┬ debug@4.4.3
+│ │ └── ms@2.1.3
+│ ├── escape-string-regexp@4.0.0
+│ ├─┬ eslint-scope@8.4.0
+│ │ ├─┬ esrecurse@4.3.0
+│ │ │ └── estraverse@5.3.0 deduped
+│ │ └── estraverse@5.3.0
+│ ├── eslint-visitor-keys@4.2.1
+│ ├─┬ espree@10.4.0
+│ │ ├─┬ acorn-jsx@5.3.2
+│ │ │ └── acorn@8.15.0 deduped
+│ │ ├── acorn@8.15.0
+│ │ └── eslint-visitor-keys@4.2.1 deduped
+│ ├─┬ esquery@1.6.0
+│ │ └── estraverse@5.3.0 deduped
+│ ├── esutils@2.0.3
+│ ├── fast-deep-equal@3.1.3
+│ ├─┬ file-entry-cache@8.0.0
+│ │ └─┬ flat-cache@4.0.1
+│ │   ├── flatted@3.3.3
+│ │   └─┬ keyv@4.5.4
+│ │     └── json-buffer@3.0.1
+│ ├─┬ find-up@5.0.0
+│ │ ├─┬ locate-path@6.0.0
+│ │ │ └─┬ p-locate@5.0.0
+│ │ │   └─┬ p-limit@3.1.0
+│ │ │     └── yocto-queue@0.1.0
+│ │ └── path-exists@4.0.0
+│ ├─┬ glob-parent@6.0.2
+│ │ └── is-glob@4.0.3 deduped
+│ ├── ignore@5.3.2
+│ ├── imurmurhash@0.1.4
+│ ├─┬ is-glob@4.0.3
+│ │ └── is-extglob@2.1.1
+│ ├── jiti@1.21.7
+│ ├── json-stable-stringify-without-jsonify@1.0.1
+│ ├── lodash.merge@4.6.2
+│ ├─┬ minimatch@3.1.2
+│ │ └─┬ brace-expansion@1.1.12
+│ │   ├── balanced-match@1.0.2
+│ │   └── concat-map@0.0.1
+│ ├── natural-compare@1.4.0
+│ └─┬ optionator@0.9.4
+│   ├── deep-is@0.1.4
+│   ├── fast-levenshtein@2.0.6
+│   ├── levn@0.4.1 deduped
+│   ├── prelude-ls@1.2.1
+│   ├─┬ type-check@0.4.0
+│   │ └── prelude-ls@1.2.1 deduped
+│   └── word-wrap@1.2.5
+├─┬ firebase@10.14.1
+│ ├─┬ @firebase/analytics-compat@0.2.14
+│ │ ├── @firebase/analytics-types@0.8.2
+│ │ ├── @firebase/analytics@0.10.8 deduped
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├─┬ @firebase/component@0.6.9
+│ │ │ ├── @firebase/util@1.10.0 deduped
+│ │ │ └── tslib@2.8.1 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/analytics@0.10.8
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/installations@0.6.9 deduped
+│ │ ├─┬ @firebase/logger@0.4.2
+│ │ │ └── tslib@2.8.1 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/app-check-compat@0.3.15
+│ │ ├── @firebase/app-check-types@0.5.2
+│ │ ├── @firebase/app-check@0.8.8 deduped
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/app-check@0.8.8
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/app-compat@0.2.43
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├── @firebase/app-types@0.9.2
+│ ├─┬ @firebase/app@0.10.13
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── idb@7.1.1
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/auth-compat@0.5.14
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├─┬ @firebase/auth-types@0.12.2
+│ │ │ ├── @firebase/app-types@0.9.2 deduped
+│ │ │ └── @firebase/util@1.10.0 deduped
+│ │ ├─┬ @firebase/auth@1.7.9
+│ │ │ ├── @firebase/app@0.10.13 deduped
+│ │ │ ├── @firebase/component@0.6.9 deduped
+│ │ │ ├── @firebase/logger@0.4.2 deduped
+│ │ │ ├── @firebase/util@1.10.0 deduped
+│ │ │ ├── UNMET OPTIONAL DEPENDENCY @react-native-async-storage/async-storage@^1.18.1
+│ │ │ ├── tslib@2.8.1 deduped
+│ │ │ └── undici@6.19.7 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── tslib@2.8.1 deduped
+│ │ └── undici@6.19.7
+│ ├─┬ @firebase/auth@1.7.9
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── UNMET OPTIONAL DEPENDENCY @react-native-async-storage/async-storage@^1.18.1
+│ │ ├── tslib@2.8.1 deduped
+│ │ └── undici@6.19.7 deduped
+│ ├─┬ @firebase/data-connect@0.1.0
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/auth-interop-types@0.2.3
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/database-compat@1.0.8
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├─┬ @firebase/database-types@1.0.5
+│ │ │ ├── @firebase/app-types@0.9.2 deduped
+│ │ │ └── @firebase/util@1.10.0 deduped
+│ │ ├── @firebase/database@1.0.8 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/database@1.0.8
+│ │ ├── @firebase/app-check-interop-types@0.3.2
+│ │ ├── @firebase/auth-interop-types@0.2.3 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├─┬ faye-websocket@0.11.4
+│ │ │ └─┬ websocket-driver@0.7.4
+│ │ │   ├── http-parser-js@0.5.10
+│ │ │   ├── safe-buffer@5.2.1
+│ │ │   └── websocket-extensions@0.1.4
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/firestore-compat@0.3.38
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├─┬ @firebase/firestore-types@3.0.2
+│ │ │ ├── @firebase/app-types@0.9.2 deduped
+│ │ │ └── @firebase/util@1.10.0 deduped
+│ │ ├── @firebase/firestore@4.7.3 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/firestore@4.7.3
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── @firebase/webchannel-wrapper@1.0.1
+│ │ ├─┬ @grpc/grpc-js@1.9.15
+│ │ │ ├── @grpc/proto-loader@0.7.15 deduped
+│ │ │ └── @types/node@22.18.12 deduped
+│ │ ├─┬ @grpc/proto-loader@0.7.15
+│ │ │ ├── lodash.camelcase@4.3.0
+│ │ │ ├── long@5.3.2
+│ │ │ ├─┬ protobufjs@7.5.4
+│ │ │ │ ├── @protobufjs/aspromise@1.1.2
+│ │ │ │ ├── @protobufjs/base64@1.1.2
+│ │ │ │ ├── @protobufjs/codegen@2.0.4
+│ │ │ │ ├── @protobufjs/eventemitter@1.1.0
+│ │ │ │ ├─┬ @protobufjs/fetch@1.1.0
+│ │ │ │ │ ├── @protobufjs/aspromise@1.1.2 deduped
+│ │ │ │ │ └── @protobufjs/inquire@1.1.0 deduped
+│ │ │ │ ├── @protobufjs/float@1.0.2
+│ │ │ │ ├── @protobufjs/inquire@1.1.0
+│ │ │ │ ├── @protobufjs/path@1.1.2
+│ │ │ │ ├── @protobufjs/pool@1.1.0
+│ │ │ │ ├── @protobufjs/utf8@1.1.0
+│ │ │ │ ├── @types/node@22.18.12 deduped
+│ │ │ │ └── long@5.3.2 deduped
+│ │ │ └─┬ yargs@17.7.2
+│ │ │   ├─┬ cliui@8.0.1
+│ │ │   │ ├─┬ string-width@4.2.3
+│ │ │   │ │ ├── emoji-regex@8.0.0
+│ │ │   │ │ ├── is-fullwidth-code-point@3.0.0 deduped
+│ │ │   │ │ └── strip-ansi@6.0.1 deduped
+│ │ │   │ ├─┬ strip-ansi@6.0.1
+│ │ │   │ │ └── ansi-regex@5.0.1
+│ │ │   │ └─┬ wrap-ansi@7.0.0
+│ │ │   │   ├── ansi-styles@4.3.0 deduped
+│ │ │   │   ├── string-width@4.2.3 deduped
+│ │ │   │   └── strip-ansi@6.0.1 deduped
+│ │ │   ├── escalade@3.2.0 deduped
+│ │ │   ├── get-caller-file@2.0.5
+│ │ │   ├── require-directory@2.1.1
+│ │ │   ├─┬ string-width@4.2.3
+│ │ │   │ ├── emoji-regex@8.0.0
+│ │ │   │ ├── is-fullwidth-code-point@3.0.0
+│ │ │   │ └─┬ strip-ansi@6.0.1
+│ │ │   │   └── ansi-regex@5.0.1
+│ │ │   ├── y18n@5.0.8
+│ │ │   └── yargs-parser@21.1.1
+│ │ ├── tslib@2.8.1 deduped
+│ │ └── undici@6.19.7 deduped
+│ ├─┬ @firebase/functions-compat@0.3.14
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/functions-types@0.6.2
+│ │ ├── @firebase/functions@0.11.8 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/functions@0.11.8
+│ │ ├── @firebase/app-check-interop-types@0.3.2 deduped
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/auth-interop-types@0.2.3 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/messaging-interop-types@0.2.2
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── tslib@2.8.1 deduped
+│ │ └── undici@6.19.7 deduped
+│ ├─┬ @firebase/installations-compat@0.2.9
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├─┬ @firebase/installations-types@0.5.2
+│ │ │ └── @firebase/app-types@0.9.2 deduped
+│ │ ├── @firebase/installations@0.6.9 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/installations@0.6.9
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── idb@7.1.1 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/messaging-compat@0.2.12
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/messaging@0.12.12 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/messaging@0.12.12
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/installations@0.6.9 deduped
+│ │ ├── @firebase/messaging-interop-types@0.2.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── idb@7.1.1 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/performance-compat@0.2.9
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/performance-types@0.2.2
+│ │ ├── @firebase/performance@0.6.9 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/performance@0.6.9
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/installations@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/remote-config-compat@0.2.9
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/remote-config-types@0.3.2
+│ │ ├── @firebase/remote-config@0.4.9 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/remote-config@0.4.9
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/installations@0.6.9 deduped
+│ │ ├── @firebase/logger@0.4.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/storage-compat@0.3.12
+│ │ ├── @firebase/app-compat@0.2.43 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├─┬ @firebase/storage-types@0.8.2
+│ │ │ ├── @firebase/app-types@0.9.2 deduped
+│ │ │ └── @firebase/util@1.10.0 deduped
+│ │ ├── @firebase/storage@0.13.2 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ └── tslib@2.8.1 deduped
+│ ├─┬ @firebase/storage@0.13.2
+│ │ ├── @firebase/app@0.10.13 deduped
+│ │ ├── @firebase/component@0.6.9 deduped
+│ │ ├── @firebase/util@1.10.0 deduped
+│ │ ├── tslib@2.8.1 deduped
+│ │ └── undici@6.19.7 deduped
+│ ├─┬ @firebase/util@1.10.0
+│ │ └── tslib@2.8.1 deduped
+│ └─┬ @firebase/vertexai-preview@0.0.4
+│   ├── @firebase/app-check-interop-types@0.3.2 deduped
+│   ├── @firebase/app-types@0.9.2 deduped
+│   ├── @firebase/app@0.10.13 deduped
+│   ├── @firebase/component@0.6.9 deduped
+│   ├── @firebase/logger@0.4.2 deduped
+│   ├── @firebase/util@1.10.0 deduped
+│   └── tslib@2.8.1 deduped
+├── globals@15.15.0
+├─┬ input-otp@1.4.2
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ lucide-react@0.462.0
+│ └── react@18.3.1 deduped
+├─┬ next-themes@0.3.0
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ postcss@8.5.6
+│ ├── nanoid@3.3.11
+│ ├── picocolors@1.1.1 deduped
+│ └── source-map-js@1.2.1
+├─┬ react-day-picker@8.10.1
+│ ├── date-fns@3.6.0 deduped
+│ └── react@18.3.1 deduped
+├─┬ react-dom@18.3.1
+│ ├─┬ loose-envify@1.4.0
+│ │ └── js-tokens@4.0.0
+│ ├── react@18.3.1 deduped
+│ └─┬ scheduler@0.23.2
+│   └── loose-envify@1.4.0 deduped
+├─┬ react-hook-form@7.65.0
+│ └── react@18.3.1 deduped
+├─┬ react-resizable-panels@2.1.9
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ react-router-dom@6.30.1
+│ ├── @remix-run/router@1.23.0
+│ ├── react-dom@18.3.1 deduped
+│ ├─┬ react-router@6.30.1
+│ │ ├── @remix-run/router@1.23.0 deduped
+│ │ └── react@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ react@18.3.1
+│ └── loose-envify@1.4.0 deduped
+├─┬ recharts@2.15.4
+│ ├── clsx@2.1.1 deduped
+│ ├── eventemitter3@4.0.7
+│ ├── lodash@4.17.21
+│ ├── react-dom@18.3.1 deduped
+│ ├── react-is@18.3.1
+│ ├─┬ react-smooth@4.0.4
+│ │ ├── fast-equals@5.3.2
+│ │ ├─┬ prop-types@15.8.1
+│ │ │ ├── loose-envify@1.4.0 deduped
+│ │ │ ├── object-assign@4.1.1
+│ │ │ └── react-is@16.13.1
+│ │ ├── react-dom@18.3.1 deduped
+│ │ ├─┬ react-transition-group@4.4.5
+│ │ │ ├── @babel/runtime@7.28.4
+│ │ │ ├─┬ dom-helpers@5.2.1
+│ │ │ │ ├── @babel/runtime@7.28.4 deduped
+│ │ │ │ └── csstype@3.1.3 deduped
+│ │ │ ├── loose-envify@1.4.0 deduped
+│ │ │ ├── prop-types@15.8.1 deduped
+│ │ │ ├── react-dom@18.3.1 deduped
+│ │ │ └── react@18.3.1 deduped
+│ │ └── react@18.3.1 deduped
+│ ├── react@18.3.1 deduped
+│ ├─┬ recharts-scale@0.4.5
+│ │ └── decimal.js-light@2.5.1
+│ ├── tiny-invariant@1.3.3
+│ └─┬ victory-vendor@36.9.2
+│   ├── @types/d3-array@3.2.2
+│   ├── @types/d3-ease@3.0.2
+│   ├─┬ @types/d3-interpolate@3.0.4
+│   │ └── @types/d3-color@3.1.3
+│   ├─┬ @types/d3-scale@4.0.9
+│   │ └── @types/d3-time@3.0.4 deduped
+│   ├─┬ @types/d3-shape@3.1.7
+│   │ └── @types/d3-path@3.1.1
+│   ├── @types/d3-time@3.0.4
+│   ├── @types/d3-timer@3.0.2
+│   ├─┬ d3-array@3.2.4
+│   │ └── internmap@2.0.3
+│   ├── d3-ease@3.0.1
+│   ├─┬ d3-interpolate@3.0.1
+│   │ └── d3-color@3.1.0
+│   ├─┬ d3-scale@4.0.2
+│   │ ├── d3-array@3.2.4 deduped
+│   │ ├── d3-format@3.1.0
+│   │ ├── d3-interpolate@3.0.1 deduped
+│   │ ├─┬ d3-time-format@4.1.0
+│   │ │ └── d3-time@3.1.0 deduped
+│   │ └── d3-time@3.1.0 deduped
+│   ├─┬ d3-shape@3.2.0
+│   │ └── d3-path@3.1.0
+│   ├─┬ d3-time@3.1.0
+│   │ └── d3-array@3.2.4 deduped
+│   └── d3-timer@3.0.1
+├─┬ sonner@1.7.4
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├── tailwind-merge@2.6.0
+├─┬ tailwindcss-animate@1.0.7
+│ └── tailwindcss@3.4.18 deduped
+├─┬ tailwindcss@3.4.18
+│ ├── @alloc/quick-lru@5.2.0
+│ ├── arg@5.0.2
+│ ├─┬ chokidar@3.6.0
+│ │ ├─┬ anymatch@3.1.3
+│ │ │ ├── normalize-path@3.0.0 deduped
+│ │ │ └── picomatch@2.3.1 deduped
+│ │ ├─┬ braces@3.0.3
+│ │ │ └─┬ fill-range@7.1.1
+│ │ │   └─┬ to-regex-range@5.0.1
+│ │ │     └── is-number@7.0.0
+│ │ ├── UNMET OPTIONAL DEPENDENCY fsevents@~2.3.2
+│ │ ├─┬ glob-parent@5.1.2
+│ │ │ └── is-glob@4.0.3 deduped
+│ │ ├─┬ is-binary-path@2.1.0
+│ │ │ └── binary-extensions@2.3.0
+│ │ ├── is-glob@4.0.3 deduped
+│ │ ├── normalize-path@3.0.0 deduped
+│ │ └─┬ readdirp@3.6.0
+│ │   └── picomatch@2.3.1 deduped
+│ ├── didyoumean@1.2.2
+│ ├── dlv@1.1.3
+│ ├─┬ fast-glob@3.3.3
+│ │ ├── @nodelib/fs.stat@2.0.5
+│ │ ├─┬ @nodelib/fs.walk@1.2.8
+│ │ │ ├─┬ @nodelib/fs.scandir@2.1.5
+│ │ │ │ ├── @nodelib/fs.stat@2.0.5 deduped
+│ │ │ │ └─┬ run-parallel@1.2.0
+│ │ │ │   └── queue-microtask@1.2.3
+│ │ │ └─┬ fastq@1.19.1
+│ │ │   └── reusify@1.1.0
+│ │ ├─┬ glob-parent@5.1.2
+│ │ │ └── is-glob@4.0.3 deduped
+│ │ ├── merge2@1.4.1
+│ │ └── micromatch@4.0.8 deduped
+│ ├── glob-parent@6.0.2 deduped
+│ ├── is-glob@4.0.3 deduped
+│ ├── jiti@1.21.7 deduped
+│ ├── lilconfig@3.1.3
+│ ├─┬ micromatch@4.0.8
+│ │ ├── braces@3.0.3 deduped
+│ │ └── picomatch@2.3.1
+│ ├── normalize-path@3.0.0
+│ ├── object-hash@3.0.0
+│ ├── picocolors@1.1.1 deduped
+│ ├─┬ postcss-import@15.1.0
+│ │ ├── postcss-value-parser@4.2.0 deduped
+│ │ ├── postcss@8.5.6 deduped
+│ │ ├─┬ read-cache@1.0.0
+│ │ │ └── pify@2.3.0
+│ │ └── resolve@1.22.11 deduped
+│ ├─┬ postcss-js@4.1.0
+│ │ ├── camelcase-css@2.0.1
+│ │ └── postcss@8.5.6 deduped
+│ ├─┬ postcss-load-config@6.0.1
+│ │ ├── jiti@1.21.7 deduped
+│ │ ├── lilconfig@3.1.3 deduped
+│ │ ├── postcss@8.5.6 deduped
+│ │ ├── UNMET OPTIONAL DEPENDENCY tsx@^4.8.1
+│ │ └── UNMET OPTIONAL DEPENDENCY yaml@^2.4.2
+│ ├─┬ postcss-nested@6.2.0
+│ │ ├── postcss-selector-parser@6.1.2 deduped
+│ │ └── postcss@8.5.6 deduped
+│ ├─┬ postcss-selector-parser@6.1.2
+│ │ ├── cssesc@3.0.0
+│ │ └── util-deprecate@1.0.2
+│ ├── postcss@8.5.6 deduped
+│ ├─┬ resolve@1.22.11
+│ │ ├─┬ is-core-module@2.16.1
+│ │ │ └─┬ hasown@2.0.2
+│ │ │   └── function-bind@1.1.2
+│ │ ├── path-parse@1.0.7
+│ │ └── supports-preserve-symlinks-flag@1.0.0
+│ └─┬ sucrase@3.35.0
+│   ├─┬ @jridgewell/gen-mapping@0.3.13
+│   │ ├── @jridgewell/sourcemap-codec@1.5.5
+│   │ └─┬ @jridgewell/trace-mapping@0.3.31
+│   │   ├── @jridgewell/resolve-uri@3.1.2
+│   │   └── @jridgewell/sourcemap-codec@1.5.5 deduped
+│   ├── commander@4.1.1
+│   ├─┬ glob@10.4.5
+│   │ ├─┬ foreground-child@3.3.1
+│   │ │ ├── cross-spawn@7.0.6 deduped
+│   │ │ └── signal-exit@4.1.0
+│   │ ├─┬ jackspeak@3.4.3
+│   │ │ ├─┬ @isaacs/cliui@8.0.2
+│   │ │ │ ├─┬ string-width-cjs@npm:string-width@4.2.3
+│   │ │ │ │ ├── emoji-regex@8.0.0
+│   │ │ │ │ ├── is-fullwidth-code-point@3.0.0 deduped
+│   │ │ │ │ └─┬ strip-ansi@6.0.1
+│   │ │ │ │   └── ansi-regex@5.0.1
+│   │ │ │ ├─┬ string-width@5.1.2
+│   │ │ │ │ ├── eastasianwidth@0.2.0
+│   │ │ │ │ ├── emoji-regex@9.2.2
+│   │ │ │ │ └── strip-ansi@7.1.2 deduped
+│   │ │ │ ├─┬ strip-ansi-cjs@npm:strip-ansi@6.0.1
+│   │ │ │ │ └── ansi-regex@5.0.1
+│   │ │ │ ├─┬ strip-ansi@7.1.2
+│   │ │ │ │ └── ansi-regex@6.2.2
+│   │ │ │ ├─┬ wrap-ansi-cjs@npm:wrap-ansi@7.0.0
+│   │ │ │ │ ├── ansi-styles@4.3.0 deduped
+│   │ │ │ │ ├─┬ string-width@4.2.3
+│   │ │ │ │ │ ├── emoji-regex@8.0.0
+│   │ │ │ │ │ ├── is-fullwidth-code-point@3.0.0 deduped
+│   │ │ │ │ │ └── strip-ansi@6.0.1 deduped
+│   │ │ │ │ └─┬ strip-ansi@6.0.1
+│   │ │ │ │   └── ansi-regex@5.0.1
+│   │ │ │ └─┬ wrap-ansi@8.1.0
+│   │ │ │   ├── ansi-styles@6.2.3
+│   │ │ │   ├── string-width@5.1.2 deduped
+│   │ │ │   └── strip-ansi@7.1.2 deduped
+│   │ │ └── @pkgjs/parseargs@0.11.0
+│   │ ├─┬ minimatch@9.0.5
+│   │ │ └─┬ brace-expansion@2.0.2
+│   │ │   └── balanced-match@1.0.2 deduped
+│   │ ├── minipass@7.1.2
+│   │ ├── package-json-from-dist@1.0.1
+│   │ └─┬ path-scurry@1.11.1
+│   │   ├── lru-cache@10.4.3
+│   │   └── minipass@7.1.2 deduped
+│   ├── lines-and-columns@1.2.4
+│   ├─┬ mz@2.7.0
+│   │ ├── any-promise@1.3.0
+│   │ ├── object-assign@4.1.1 deduped
+│   │ └─┬ thenify-all@1.6.0
+│   │   └─┬ thenify@3.3.1
+│   │     └── any-promise@1.3.0 deduped
+│   ├── pirates@4.0.7
+│   └── ts-interface-checker@0.1.13
+├─┬ typescript-eslint@8.46.2
+│ ├─┬ @typescript-eslint/eslint-plugin@8.46.2
+│ │ ├── @eslint-community/regexpp@4.12.1 deduped
+│ │ ├── @typescript-eslint/parser@8.46.2 deduped
+│ │ ├─┬ @typescript-eslint/scope-manager@8.46.2
+│ │ │ ├── @typescript-eslint/types@8.46.2 deduped
+│ │ │ └── @typescript-eslint/visitor-keys@8.46.2 deduped
+│ │ ├─┬ @typescript-eslint/type-utils@8.46.2
+│ │ │ ├── @typescript-eslint/types@8.46.2 deduped
+│ │ │ ├── @typescript-eslint/typescript-estree@8.46.2 deduped
+│ │ │ ├── @typescript-eslint/utils@8.46.2 deduped
+│ │ │ ├── debug@4.4.3 deduped
+│ │ │ ├── eslint@9.38.0 deduped
+│ │ │ ├── ts-api-utils@2.1.0 deduped
+│ │ │ └── typescript@5.9.3 deduped
+│ │ ├── @typescript-eslint/utils@8.46.2 deduped
+│ │ ├─┬ @typescript-eslint/visitor-keys@8.46.2
+│ │ │ ├── @typescript-eslint/types@8.46.2 deduped
+│ │ │ └── eslint-visitor-keys@4.2.1 deduped
+│ │ ├── eslint@9.38.0 deduped
+│ │ ├── graphemer@1.4.0
+│ │ ├── ignore@7.0.5
+│ │ ├── natural-compare@1.4.0 deduped
+│ │ ├─┬ ts-api-utils@2.1.0
+│ │ │ └── typescript@5.9.3 deduped
+│ │ └── typescript@5.9.3 deduped
+│ ├─┬ @typescript-eslint/parser@8.46.2
+│ │ ├── @typescript-eslint/scope-manager@8.46.2 deduped
+│ │ ├── @typescript-eslint/types@8.46.2
+│ │ ├── @typescript-eslint/typescript-estree@8.46.2 deduped
+│ │ ├── @typescript-eslint/visitor-keys@8.46.2 deduped
+│ │ ├── debug@4.4.3 deduped
+│ │ ├── eslint@9.38.0 deduped
+│ │ └── typescript@5.9.3 deduped
+│ ├─┬ @typescript-eslint/typescript-estree@8.46.2
+│ │ ├─┬ @typescript-eslint/project-service@8.46.2
+│ │ │ ├── @typescript-eslint/tsconfig-utils@8.46.2 deduped
+│ │ │ ├── @typescript-eslint/types@8.46.2 deduped
+│ │ │ ├── debug@4.4.3 deduped
+│ │ │ └── typescript@5.9.3 deduped
+│ │ ├─┬ @typescript-eslint/tsconfig-utils@8.46.2
+│ │ │ └── typescript@5.9.3 deduped
+│ │ ├── @typescript-eslint/types@8.46.2 deduped
+│ │ ├── @typescript-eslint/visitor-keys@8.46.2 deduped
+│ │ ├── debug@4.4.3 deduped
+│ │ ├── fast-glob@3.3.3 deduped
+│ │ ├── is-glob@4.0.3 deduped
+│ │ ├─┬ minimatch@9.0.5
+│ │ │ └─┬ brace-expansion@2.0.2
+│ │ │   └── balanced-match@1.0.2 deduped
+│ │ ├── semver@7.7.3
+│ │ ├── ts-api-utils@2.1.0 deduped
+│ │ └── typescript@5.9.3 deduped
+│ ├─┬ @typescript-eslint/utils@8.46.2
+│ │ ├── @eslint-community/eslint-utils@4.9.0 deduped
+│ │ ├── @typescript-eslint/scope-manager@8.46.2 deduped
+│ │ ├── @typescript-eslint/types@8.46.2 deduped
+│ │ ├── @typescript-eslint/typescript-estree@8.46.2 deduped
+│ │ ├── eslint@9.38.0 deduped
+│ │ └── typescript@5.9.3 deduped
+│ ├── eslint@9.38.0 deduped
+│ └── typescript@5.9.3 deduped
+├── typescript@5.9.3
+├─┬ vaul@0.9.9
+│ ├── @radix-ui/react-dialog@1.1.15 deduped
+│ ├── react-dom@18.3.1 deduped
+│ └── react@18.3.1 deduped
+├─┬ vite@5.4.21
+│ ├── @types/node@22.18.12 deduped
+│ ├─┬ esbuild@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/aix-ppc64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/android-arm@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/android-arm64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/android-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/darwin-arm64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/darwin-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/freebsd-arm64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/freebsd-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-arm@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-arm64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-ia32@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-loong64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-mips64el@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-ppc64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-riscv64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/linux-s390x@0.21.5
+│ │ ├── @esbuild/linux-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/netbsd-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/openbsd-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/sunos-x64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/win32-arm64@0.21.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @esbuild/win32-ia32@0.21.5
+│ │ └── UNMET OPTIONAL DEPENDENCY @esbuild/win32-x64@0.21.5
+│ ├── UNMET OPTIONAL DEPENDENCY fsevents@~2.3.3
+│ ├── UNMET OPTIONAL DEPENDENCY less@*
+│ ├── UNMET OPTIONAL DEPENDENCY lightningcss@^1.21.0
+│ ├── postcss@8.5.6 deduped
+│ ├─┬ rollup@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-android-arm-eabi@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-android-arm64@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-darwin-arm64@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-darwin-x64@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-freebsd-arm64@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-freebsd-x64@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-arm-gnueabihf@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-arm-musleabihf@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-arm64-gnu@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-arm64-musl@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-loong64-gnu@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-ppc64-gnu@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-riscv64-gnu@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-riscv64-musl@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-linux-s390x-gnu@4.52.5
+│ │ ├── @rollup/rollup-linux-x64-gnu@4.52.5
+│ │ ├── @rollup/rollup-linux-x64-musl@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-openharmony-arm64@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-win32-arm64-msvc@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-win32-ia32-msvc@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-win32-x64-gnu@4.52.5
+│ │ ├── UNMET OPTIONAL DEPENDENCY @rollup/rollup-win32-x64-msvc@4.52.5
+│ │ ├── @types/estree@1.0.8 deduped
+│ │ └── UNMET OPTIONAL DEPENDENCY fsevents@~2.3.2
+│ ├── UNMET OPTIONAL DEPENDENCY sass-embedded@*
+│ ├── UNMET OPTIONAL DEPENDENCY sass@*
+│ ├── UNMET OPTIONAL DEPENDENCY stylus@*
+│ ├── UNMET OPTIONAL DEPENDENCY sugarss@*
+│ └── UNMET OPTIONAL DEPENDENCY terser@^5.4.0
+└── zod@3.25.76
+
