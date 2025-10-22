@@ -1,73 +1,238 @@
-# React + TypeScript + Vite
+# 🗳️ Pollverse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Pollverse** is an interactive polling and quiz web app built with **React + Firebase**, styled using **Tailwind CSS** and **Shadcn UI**.  
+It allows users to **create polls**, **vote**, **view results in real time**, and **analyze poll performance**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+✅ Create and manage interactive polls  
+✅ Multiple question types — text, multiple choice, scale, ranking  
+✅ Real-time voting results via Firestore listeners  
+✅ Anonymous or authenticated voting options  
+✅ Beautiful UI built with **Shadcn + Tailwind**  
+✅ Firebase authentication (email/password, Google login optional)  
+✅ Dashboard for viewing and managing your polls  
+✅ Responsive design for all devices  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧩 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Category | Technologies |
+|-----------|--------------|
+| **Frontend** | React + Vite + TypeScript |
+| **UI Library** | Shadcn/UI + Tailwind CSS |
+| **Backend & Database** | Firebase Firestore |
+| **Auth** | Firebase Authentication |
+| **Toast & Notifications** | Sonner |
+| **Icons** | Lucide React |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## ⚙️ Installation & Setup
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/<your-username>/pollverse.git
+cd pollverse
+````
+
+### 2️⃣ Install dependencies
+
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+> This installs React, Tailwind, Firebase, Shadcn components, Sonner, and other dependencies.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 🔥 Firebase Setup
+
+### Step 1 — Create a Firebase project
+
+* Visit [Firebase Console](https://console.firebase.google.com/)
+* Create a new project → Enable Firestore Database + Authentication.
+
+### Step 2 — Add your Firebase config
+
+Create a file at:
+
 ```
+src/integrations/firebase/config.ts
+```
+
+Paste your Firebase credentials:
+
+```ts
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
+
+const firebaseConfig = {
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_AUTH_DOMAIN",
+  projectId: "YOUR_PROJECT_ID",
+  storageBucket: "YOUR_STORAGE_BUCKET",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
+};
+
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const auth = getAuth(app);
+```
+
+---
+
+### Step 3 — Set Firestore Rules
+
+Go to **Firestore → Rules tab** and paste:
+
+```bash
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /polls/{pollId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+      allow update, delete: if request.auth != null && request.auth.uid == resource.data.creator_id;
+    }
+    match /questions/{questionId} {
+      allow read: if true;
+      allow create: if request.auth != null;
+    }
+    match /votes/{voteId} {
+      allow read: if true;
+      allow create: if true;
+    }
+    match /users/{userId} {
+      allow read: if true;
+      allow create, update, delete: if request.auth != null && request.auth.uid == userId;
+    }
+  }
+}
+```
+
+---
+
+### Step 4 — Enable Authentication
+
+In Firebase Console → Authentication → Sign-in method → enable **Email/Password**.
+
+---
+
+## 🧱 Project Structure
+
+```
+pollverse/
+├── src/
+│   ├── assets/              # Static images and icons
+│   ├── components/
+│   │   ├── ui/              # Shadcn UI components (Button, Card, Input, etc.)
+│   │   └── Navbar.tsx
+│   ├── integrations/
+│   │   └── firebase/config.ts
+│   ├── pages/
+│   │   ├── Auth.tsx
+│   │   ├── Dashboard.tsx
+│   │   ├── CreatePoll.tsx
+│   │   ├── PollVote.tsx
+│   │   ├── PollResults.tsx
+│   │   └── Index.tsx
+│   ├── App.tsx
+│   ├── main.tsx
+│   └── index.css
+├── tailwind.config.js
+├── tsconfig.json
+├── package.json
+└── README.md
+```
+
+---
+
+## 🧠 Available Scripts
+
+| Command           | Description                   |
+| ----------------- | ----------------------------- |
+| `npm run dev`     | Starts development server     |
+| `npm run build`   | Builds the app for production |
+| `npm run preview` | Serves built app locally      |
+| `npm run lint`    | Runs ESLint for code quality  |
+
+---
+
+## 🪄 UI Components (Shadcn)
+
+This project uses **Shadcn UI** components for clean, accessible styling.
+You can add new components anytime:
+
+```bash
+npx shadcn@latest add <component-name>
+```
+
+Example:
+
+```bash
+npx shadcn@latest add button card input label textarea select switch tabs toast
+```
+
+---
+
+## 💬 Toasts & Notifications
+
+To display success/error messages:
+
+```ts
+import { toast } from "sonner";
+toast.success("Poll created successfully!");
+toast.error("Something went wrong!");
+```
+
+Make sure you include the `<Toaster />` in your `App.tsx`.
+
+---
+
+## 🧪 Deployment
+
+You can deploy easily to:
+
+* **Firebase Hosting**
+* **Vercel**
+* **Netlify**
+
+For Firebase Hosting:
+
+```bash
+npm install -g firebase-tools
+firebase login
+firebase init hosting
+firebase deploy
+```
+
+---
+
+## 🤝 Contributing
+
+Pull requests are welcome!
+If you’d like to add new features (like analytics, leaderboard, or comments), fork the repo and submit a PR.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License**.
+
+---
+
+## ✨ Author
+
+👩‍💻 **Whitney Shisia**
+🎓 Journalism Student & Certified Software Developer
+📧 shisiawhitney215@gmail.com
+---
+
+### 💡 “Create. Vote. Analyze — with Pollverse.”
