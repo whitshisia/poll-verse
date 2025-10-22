@@ -1,6 +1,16 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { db } from "@/integrations/firebase/config";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  getDoc,
+  doc,
+  query,
+  where,
+  orderBy,
+} from "firebase/firestore";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -24,25 +34,31 @@ const PollVote = () => {
   }, [pollId]);
 
   const fetchPoll = async () => {
-    const { data: pollData } = await supabase
-      .from("polls")
-      .select("*")
-      .eq("id", pollId)
-      .single();
+    try {
+      const pollDoc = await getDoc(doc(db, "polls", pollId!));
+      if (pollDoc.exists() && pollDoc.data().is_active !== false) {
+        const pollData = pollDoc.data();
+        setPoll({ id: pollDoc.id, ...pollData });
 
-    if (pollData && pollData.is_active) {
-      setPoll(pollData);
-
-      const { data: questionsData } = await supabase
-        .from("questions")
-        .select("*")
-        .eq("poll_id", pollId)
-        .order("order_index");
-
-      setQuestions(questionsData || []);
+        const q = query(
+          collection(db, "questions"),
+          where("poll_id", "==", pollId),
+          orderBy("order_index")
+        );
+        const querySnapshot = await getDocs(q);
+        const questionsData = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setQuestions(questionsData);
+      } else {
+        setPoll(null);
+      }
+    } catch (error: any) {
+      toast.error("Failed to load poll");
+    } finally {
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   const handleSubmit = async () => {
@@ -52,18 +68,16 @@ const PollVote = () => {
     }
 
     setSubmitting(true);
-
     try {
-      const votesData = questions.map((q) => ({
-        poll_id: pollId,
-        question_id: q.id,
-        answer: answers[q.id],
-        voter_identifier: crypto.randomUUID(),
-      }));
-
-      const { error } = await supabase.from("votes").insert(votesData);
-
-      if (error) throw error;
+      for (const q of questions) {
+        await addDoc(collection(db, "votes"), {
+          poll_id: pollId,
+          question_id: q.id,
+          answer: answers[q.id],
+          voter_identifier: crypto.randomUUID(),
+          created_at: new Date().toISOString(),
+        });
+      }
 
       toast.success("Your response has been submitted!");
       setSubmitted(true);
@@ -74,15 +88,14 @@ const PollVote = () => {
     }
   };
 
-  if (loading) {
+  if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p className="text-muted-foreground">Loading poll...</p>
       </div>
     );
-  }
 
-  if (!poll) {
+  if (!poll)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Card className="glass-card max-w-md">
@@ -95,9 +108,8 @@ const PollVote = () => {
         </Card>
       </div>
     );
-  }
 
-  if (submitted) {
+  if (submitted)
     return (
       <div className="min-h-screen flex items-center justify-center p-4">
         <Card className="glass-card max-w-md">
@@ -114,7 +126,6 @@ const PollVote = () => {
         </Card>
       </div>
     );
-  }
 
   return (
     <div className="min-h-screen p-4">
@@ -147,18 +158,13 @@ const PollVote = () => {
                 {question.question_type === "multiple_choice" && (
                   <RadioGroup
                     value={answers[question.id]}
-                    onValueChange={(value) =>
-                      setAnswers({ ...answers, [question.id]: value })
-                    }
+                    onValueChange={(value) => setAnswers({ ...answers, [question.id]: value })}
                   >
                     <div className="space-y-3">
                       {question.options?.map((option: string, optIndex: number) => (
                         <div key={optIndex} className="flex items-center space-x-3">
                           <RadioGroupItem value={option} id={`${question.id}-${optIndex}`} />
-                          <Label
-                            htmlFor={`${question.id}-${optIndex}`}
-                            className="cursor-pointer flex-1 py-2"
-                          >
+                          <Label htmlFor={`${question.id}-${optIndex}`} className="cursor-pointer flex-1 py-2">
                             {option}
                           </Label>
                         </div>
@@ -171,9 +177,7 @@ const PollVote = () => {
                   <Textarea
                     placeholder="Your answer..."
                     value={answers[question.id] || ""}
-                    onChange={(e) =>
-                      setAnswers({ ...answers, [question.id]: e.target.value })
-                    }
+                    onChange={(e) => setAnswers({ ...answers, [question.id]: e.target.value })}
                     rows={4}
                   />
                 )}

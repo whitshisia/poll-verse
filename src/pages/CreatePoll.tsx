@@ -1,13 +1,34 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { db, auth } from "@/integrations/firebase/config"; // ✅ your firebase config
+import {
+  collection,
+  addDoc,
+  doc,
+  setDoc,
+  serverTimestamp,
+} from "firebase/firestore";
+import { onAuthStateChanged } from "firebase/auth";
+
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Switch } from "@/components/ui/switch";
 import { toast } from "sonner";
 import { Plus, Trash2, Save } from "lucide-react";
@@ -23,13 +44,27 @@ interface Question {
 
 const CreatePoll = () => {
   const navigate = useNavigate();
+  const [user, setUser] = useState<any>(null);
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [anonymousVoting, setAnonymousVoting] = useState(true);
   const [questions, setQuestions] = useState<Question[]>([
-    { id: "1", question_text: "", question_type: "multiple_choice", options: ["", ""] },
+    {
+      id: "1",
+      question_text: "",
+      question_type: "multiple_choice",
+      options: ["", ""],
+    },
   ]);
+
+  // ✅ track user authentication state
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return unsubscribe;
+  }, []);
 
   const addQuestion = () => {
     setQuestions([
@@ -67,7 +102,9 @@ const CreatePoll = () => {
         q.id === questionId
           ? {
               ...q,
-              options: q.options.map((opt, idx) => (idx === optionIndex ? value : opt)),
+              options: q.options.map((opt, idx) =>
+                idx === optionIndex ? value : opt
+              ),
             }
           : q
       )
@@ -95,47 +132,45 @@ const CreatePoll = () => {
       return;
     }
 
+    if (!user) {
+      toast.error("You must be logged in to create a poll");
+      navigate("/auth");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user) {
-        toast.error("You must be logged in to create a poll");
-        navigate("/auth");
-        return;
-      }
+      // ✅ Create a new poll document in Firestore
+      const pollRef = await addDoc(collection(db, "polls"), {
+        creator_id: user.uid,
+        title,
+        description,
+        anonymous_voting: anonymousVoting,
+        created_at: serverTimestamp(),
+      });
 
-      const { data: poll, error: pollError } = await supabase
-        .from("polls")
-        .insert({
-          creator_id: user.id,
-          title,
-          description,
-          anonymous_voting: anonymousVoting,
+      // ✅ Add related questions under "questions" collection
+      const batchPromises = questions.map((q, index) =>
+        addDoc(collection(db, "questions"), {
+          poll_id: pollRef.id,
+          question_text: q.question_text,
+          question_type: q.question_type,
+          options:
+            q.question_type === "multiple_choice"
+              ? q.options.filter((opt) => opt.trim())
+              : null,
+          order_index: index,
         })
-        .select()
-        .single();
+      );
 
-      if (pollError) throw pollError;
-
-      const questionsData = questions.map((q, index) => ({
-        poll_id: poll.id,
-        question_text: q.question_text,
-        question_type: q.question_type,
-        options: q.question_type === "multiple_choice" ? q.options.filter((opt) => opt.trim()) : null,
-        order_index: index,
-      }));
-
-      const { error: questionsError } = await supabase
-        .from("questions")
-        .insert(questionsData);
-
-      if (questionsError) throw questionsError;
+      await Promise.all(batchPromises);
 
       toast.success("Poll created successfully!");
-      navigate(`/poll/${poll.id}`);
+      navigate(`/poll/${pollRef.id}`);
     } catch (error: any) {
-      toast.error(error.message);
+      console.error(error);
+      toast.error(error.message || "Failed to create poll");
     } finally {
       setLoading(false);
     }
@@ -144,14 +179,19 @@ const CreatePoll = () => {
   return (
     <div className="min-h-screen">
       <Navbar />
-      
+
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gradient-gold mb-2">Create New Poll</h1>
-          <p className="text-muted-foreground">Design your poll and add questions</p>
+          <h1 className="text-4xl font-bold text-gradient-gold mb-2">
+            Create New Poll
+          </h1>
+          <p className="text-muted-foreground">
+            Design your poll and add questions
+          </p>
         </div>
 
         <div className="space-y-6">
+          {/* POLL DETAILS */}
           <Card className="glass-card">
             <CardHeader>
               <CardTitle>Poll Details</CardTitle>
@@ -194,12 +234,15 @@ const CreatePoll = () => {
             </CardContent>
           </Card>
 
+          {/* QUESTIONS SECTION */}
           {questions.map((question, qIndex) => (
             <Card key={question.id} className="glass-card">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <CardTitle className="text-lg">Question {qIndex + 1}</CardTitle>
+                    <CardTitle className="text-lg">
+                      Question {qIndex + 1}
+                    </CardTitle>
                   </div>
                   {questions.length > 1 && (
                     <Button
@@ -229,7 +272,11 @@ const CreatePoll = () => {
                   <Select
                     value={question.question_type}
                     onValueChange={(value) =>
-                      updateQuestion(question.id, "question_type", value as QuestionType)
+                      updateQuestion(
+                        question.id,
+                        "question_type",
+                        value as QuestionType
+                      )
                     }
                   >
                     <SelectTrigger>
@@ -239,7 +286,7 @@ const CreatePoll = () => {
                       <SelectItem value="multiple_choice">Multiple Choice</SelectItem>
                       <SelectItem value="text">Open Text</SelectItem>
                       <SelectItem value="ranking">Ranking</SelectItem>
-                      <SelectItem value="scale">Scale (1-10)</SelectItem>
+                      <SelectItem value="scale">Scale (1–10)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -260,7 +307,9 @@ const CreatePoll = () => {
                           <Button
                             variant="ghost"
                             size="icon"
-                            onClick={() => removeOption(question.id, optIndex)}
+                            onClick={() =>
+                              removeOption(question.id, optIndex)
+                            }
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
@@ -286,7 +335,12 @@ const CreatePoll = () => {
               <Plus className="h-4 w-4" />
               Add Question
             </Button>
-            <Button variant="hero" onClick={handleSubmit} disabled={loading} className="flex-1">
+            <Button
+              variant="hero"
+              onClick={handleSubmit}
+              disabled={loading}
+              className="flex-1"
+            >
               <Save className="h-4 w-4" />
               {loading ? "Creating..." : "Create Poll"}
             </Button>

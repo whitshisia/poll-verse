@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { supabase } from "@/integrations/supabase/client";
+import { db } from "@/integrations/firebase/config";
+import {
+  collection,
+  query,
+  where,
+  getDocs,
+  doc,
+  getDoc,
+  onSnapshot,
+  orderBy,
+} from "firebase/firestore";
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Share2, Eye, Copy } from "lucide-react";
+import { Eye, Copy } from "lucide-react";
 import { toast } from "sonner";
 
 const PollResults = () => {
@@ -17,58 +27,40 @@ const PollResults = () => {
 
   useEffect(() => {
     fetchPollData();
-    subscribeToVotes();
   }, [pollId]);
 
   const fetchPollData = async () => {
-    const { data: pollData } = await supabase
-      .from("polls")
-      .select("*")
-      .eq("id", pollId)
-      .single();
-
-    if (pollData) {
-      setPoll(pollData);
-
-      const { data: questionsData } = await supabase
-        .from("questions")
-        .select("*")
-        .eq("poll_id", pollId)
-        .order("order_index");
-
-      setQuestions(questionsData || []);
-
-      const { data: votesData } = await supabase
-        .from("votes")
-        .select("*")
-        .eq("poll_id", pollId);
-
-      processResults(questionsData || [], votesData || []);
+    const pollRef = doc(db, "polls", pollId!);
+    const pollSnap = await getDoc(pollRef);
+    if (!pollSnap.exists()) {
+      setPoll(null);
+      setLoading(false);
+      return;
     }
 
-    setLoading(false);
+    const pollData = pollSnap.data();
+    setPoll({ id: pollSnap.id, ...pollData });
+
+    const questionsQuery = query(
+      collection(db, "questions"),
+      where("poll_id", "==", pollId),
+      orderBy("order_index")
+    );
+    const questionsSnap = await getDocs(questionsQuery);
+    const fetchedQuestions = questionsSnap.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+    setQuestions(fetchedQuestions);
+
+    subscribeToVotes(fetchedQuestions);
   };
 
-  const subscribeToVotes = () => {
-    const channel = supabase
-      .channel(`poll-${pollId}-votes`)
-      .on(
-        "postgres_changes",
-        {
-          event: "INSERT",
-          schema: "public",
-          table: "votes",
-          filter: `poll_id=eq.${pollId}`,
-        },
-        () => {
-          fetchPollData();
-        }
-      )
-      .subscribe();
-
-    return () => {
-      supabase.removeChannel(channel);
-    };
+  const subscribeToVotes = (questionsData: any[]) => {
+    const votesQuery = query(collection(db, "votes"), where("poll_id", "==", pollId));
+    const unsubscribe = onSnapshot(votesQuery, (snapshot) => {
+      const votes = snapshot.docs.map((doc) => doc.data());
+      processResults(questionsData, votes);
+      setLoading(false);
+    });
+    return () => unsubscribe();
   };
 
   const processResults = (questionsData: any[], votesData: any[]) => {
@@ -113,15 +105,14 @@ const PollResults = () => {
     toast.success("Poll link copied to clipboard!");
   };
 
-  if (loading) {
+  if (loading)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p className="text-muted-foreground">Loading results...</p>
       </div>
     );
-  }
 
-  if (!poll) {
+  if (!poll)
     return (
       <div className="min-h-screen flex items-center justify-center">
         <Card className="glass-card max-w-md">
@@ -134,14 +125,12 @@ const PollResults = () => {
         </Card>
       </div>
     );
-  }
 
   const totalResponses = Object.values(results)[0]?.totalVotes || 0;
 
   return (
     <div className="min-h-screen">
       <Navbar />
-      
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <Card className="glass-card mb-6">
           <CardHeader>
@@ -174,7 +163,6 @@ const PollResults = () => {
         <div className="space-y-6">
           {questions.map((question, index) => {
             const result = results[question.id];
-
             return (
               <Card key={question.id} className="glass-card">
                 <CardHeader>
