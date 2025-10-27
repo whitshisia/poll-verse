@@ -6,7 +6,7 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus, BarChart3, Users, TrendingUp, LogOut } from "lucide-react";
+import { Plus, BarChart3, LogOut } from "lucide-react";
 
 interface Poll {
   id: string;
@@ -17,7 +17,7 @@ interface Poll {
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const [userId, setUserId] = useState<string | null>(null);
+  const [,setUserId] = useState<string | null>(null);
   const [polls, setPolls] = useState<Poll[]>([]);
   const [loading, setLoading] = useState(true);
 

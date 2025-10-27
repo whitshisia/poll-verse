@@ -1,5 +1,5 @@
-import { FirestoreDataConverter } from "firebase/firestore";
-import { Poll } from "@/types";
+import type{ FirestoreDataConverter } from "firebase/firestore";
+import type { Poll } from "./types";
 
 export const pollConverter: FirestoreDataConverter<Poll> = {
   toFirestore(poll: Poll) {

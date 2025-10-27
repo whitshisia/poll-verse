@@ -1,14 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { db, auth } from "@/integrations/firebase/config"; // ✅ your firebase config
-import {
-  collection,
-  addDoc,
-  doc,
-  setDoc,
-  serverTimestamp,
-} from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
+import { db, auth } from "@/integrations/firebase/config"; // firebase
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { onAuthStateChanged, type User } from "firebase/auth";
 
 import { Navbar } from "@/components/Navbar";
 import { Button } from "@/components/ui/button";
@@ -44,7 +38,7 @@ interface Question {
 
 const CreatePoll = () => {
   const navigate = useNavigate();
-  const [user, setUser] = useState<any>(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -58,7 +52,7 @@ const CreatePoll = () => {
     },
   ]);
 
-  // ✅ track user authentication state
+  // track auth
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
@@ -67,8 +61,8 @@ const CreatePoll = () => {
   }, []);
 
   const addQuestion = () => {
-    setQuestions([
-      ...questions,
+    setQuestions((prev) => [
+      ...prev,
       {
         id: Date.now().toString(),
         question_text: "",
@@ -79,41 +73,48 @@ const CreatePoll = () => {
   };
 
   const removeQuestion = (id: string) => {
-    setQuestions(questions.filter((q) => q.id !== id));
+    setQuestions((prev) => prev.filter((q) => q.id !== id));
   };
 
-  const updateQuestion = (id: string, field: keyof Question, value: any) => {
-    setQuestions(
-      questions.map((q) => (q.id === id ? { ...q, [field]: value } : q))
-    );
-  };
-
-  const addOption = (questionId: string) => {
-    setQuestions(
-      questions.map((q) =>
-        q.id === questionId ? { ...q, options: [...q.options, ""] } : q
-      )
-    );
-  };
-
-  const updateOption = (questionId: string, optionIndex: number, value: string) => {
-    setQuestions(
-      questions.map((q) =>
-        q.id === questionId
+  // Narrowed typing for updateQuestion
+  const updateQuestion = (
+    id: string,
+    field: "question_text" | "question_type" | "options",
+    value: string | QuestionType | string[]
+  ) => {
+    setQuestions((prev) =>
+      prev.map((q) =>
+        q.id === id
           ? {
               ...q,
-              options: q.options.map((opt, idx) =>
-                idx === optionIndex ? value : opt
-              ),
+              [field]: value,
             }
           : q
       )
     );
   };
 
+  const addOption = (questionId: string) => {
+    setQuestions((prev) =>
+      prev.map((q) =>
+        q.id === questionId ? { ...q, options: [...q.options, ""] } : q
+      )
+    );
+  };
+
+  const updateOption = (questionId: string, optionIndex: number, value: string) => {
+    setQuestions((prev) =>
+      prev.map((q) =>
+        q.id === questionId
+          ? { ...q, options: q.options.map((opt, idx) => (idx === optionIndex ? value : opt)) }
+          : q
+      )
+    );
+  };
+
   const removeOption = (questionId: string, optionIndex: number) => {
-    setQuestions(
-      questions.map((q) =>
+    setQuestions((prev) =>
+      prev.map((q) =>
         q.id === questionId
           ? { ...q, options: q.options.filter((_, idx) => idx !== optionIndex) }
           : q
@@ -141,7 +142,7 @@ const CreatePoll = () => {
     setLoading(true);
 
     try {
-      // ✅ Create a new poll document in Firestore
+      // create poll
       const pollRef = await addDoc(collection(db, "polls"), {
         creator_id: user.uid,
         title,
@@ -150,16 +151,13 @@ const CreatePoll = () => {
         created_at: serverTimestamp(),
       });
 
-      // ✅ Add related questions under "questions" collection
+      // add questions
       const batchPromises = questions.map((q, index) =>
         addDoc(collection(db, "questions"), {
           poll_id: pollRef.id,
           question_text: q.question_text,
           question_type: q.question_type,
-          options:
-            q.question_type === "multiple_choice"
-              ? q.options.filter((opt) => opt.trim())
-              : null,
+          options: q.question_type === "multiple_choice" ? q.options.filter((o) => o.trim()) : [],
           order_index: index,
         })
       );
@@ -170,7 +168,7 @@ const CreatePoll = () => {
       navigate(`/poll/${pollRef.id}`);
     } catch (error: any) {
       console.error(error);
-      toast.error(error.message || "Failed to create poll");
+      toast.error(error?.message ?? "Failed to create poll");
     } finally {
       setLoading(false);
     }
@@ -182,12 +180,8 @@ const CreatePoll = () => {
 
       <div className="container mx-auto px-4 py-8 max-w-4xl">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gradient-gold mb-2">
-            Create New Poll
-          </h1>
-          <p className="text-muted-foreground">
-            Design your poll and add questions
-          </p>
+          <h1 className="text-4xl font-bold text-gradient-gold mb-2">Create New Poll</h1>
+          <p className="text-muted-foreground">Design your poll and add questions</p>
         </div>
 
         <div className="space-y-6">
@@ -200,56 +194,34 @@ const CreatePoll = () => {
             <CardContent className="space-y-4">
               <div className="space-y-2">
                 <Label htmlFor="title">Poll Title *</Label>
-                <Input
-                  id="title"
-                  placeholder="What's your poll about?"
-                  value={title}
-                  onChange={(e) => setTitle(e.target.value)}
-                />
+                <Input id="title" placeholder="What's your poll about?" value={title} onChange={(e) => setTitle(e.target.value)} />
               </div>
 
               <div className="space-y-2">
                 <Label htmlFor="description">Description (Optional)</Label>
-                <Textarea
-                  id="description"
-                  placeholder="Add more context to your poll"
-                  value={description}
-                  onChange={(e) => setDescription(e.target.value)}
-                  rows={3}
-                />
+                <Textarea id="description" placeholder="Add more context to your poll" value={description} onChange={(e) => setDescription(e.target.value)} rows={3} />
               </div>
 
               <div className="flex items-center justify-between">
                 <div className="space-y-0.5">
                   <Label>Anonymous Voting</Label>
-                  <p className="text-sm text-muted-foreground">
-                    Allow voters to respond anonymously
-                  </p>
+                  <p className="text-sm text-muted-foreground">Allow voters to respond anonymously</p>
                 </div>
-                <Switch
-                  checked={anonymousVoting}
-                  onCheckedChange={setAnonymousVoting}
-                />
+                <Switch checked={anonymousVoting} onCheckedChange={setAnonymousVoting} />
               </div>
             </CardContent>
           </Card>
 
-          {/* QUESTIONS SECTION */}
+          {/* QUESTIONS */}
           {questions.map((question, qIndex) => (
             <Card key={question.id} className="glass-card">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <CardTitle className="text-lg">
-                      Question {qIndex + 1}
-                    </CardTitle>
+                    <CardTitle className="text-lg">Question {qIndex + 1}</CardTitle>
                   </div>
                   {questions.length > 1 && (
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => removeQuestion(question.id)}
-                    >
+                    <Button variant="ghost" size="icon" onClick={() => removeQuestion(question.id)}>
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   )}
@@ -258,27 +230,12 @@ const CreatePoll = () => {
               <CardContent className="space-y-4">
                 <div className="space-y-2">
                   <Label>Question Text *</Label>
-                  <Input
-                    placeholder="Enter your question"
-                    value={question.question_text}
-                    onChange={(e) =>
-                      updateQuestion(question.id, "question_text", e.target.value)
-                    }
-                  />
+                  <Input placeholder="Enter your question" value={question.question_text} onChange={(e) => updateQuestion(question.id, "question_text", e.target.value)} />
                 </div>
 
                 <div className="space-y-2">
                   <Label>Question Type</Label>
-                  <Select
-                    value={question.question_type}
-                    onValueChange={(value) =>
-                      updateQuestion(
-                        question.id,
-                        "question_type",
-                        value as QuestionType
-                      )
-                    }
-                  >
+                  <Select value={question.question_type} onValueChange={(value) => updateQuestion(question.id, "question_type", value as QuestionType)}>
                     <SelectTrigger>
                       <SelectValue />
                     </SelectTrigger>
@@ -296,31 +253,15 @@ const CreatePoll = () => {
                     <Label>Options</Label>
                     {question.options.map((option, optIndex) => (
                       <div key={optIndex} className="flex gap-2">
-                        <Input
-                          placeholder={`Option ${optIndex + 1}`}
-                          value={option}
-                          onChange={(e) =>
-                            updateOption(question.id, optIndex, e.target.value)
-                          }
-                        />
+                        <Input placeholder={`Option ${optIndex + 1}`} value={option} onChange={(e) => updateOption(question.id, optIndex, e.target.value)} />
                         {question.options.length > 2 && (
-                          <Button
-                            variant="ghost"
-                            size="icon"
-                            onClick={() =>
-                              removeOption(question.id, optIndex)
-                            }
-                          >
+                          <Button variant="ghost" size="icon" onClick={() => removeOption(question.id, optIndex)}>
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         )}
                       </div>
                     ))}
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => addOption(question.id)}
-                    >
+                    <Button variant="outline" size="sm" onClick={() => addOption(question.id)}>
                       <Plus className="h-4 w-4" />
                       Add Option
                     </Button>
@@ -335,12 +276,7 @@ const CreatePoll = () => {
               <Plus className="h-4 w-4" />
               Add Question
             </Button>
-            <Button
-              variant="hero"
-              onClick={handleSubmit}
-              disabled={loading}
-              className="flex-1"
-            >
+            <Button variant="hero" onClick={handleSubmit} disabled={loading} className="flex-1">
               <Save className="h-4 w-4" />
               {loading ? "Creating..." : "Create Poll"}
             </Button>
